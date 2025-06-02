@@ -1,7 +1,6 @@
-
 const express = require("express");
 const router = express.Router();
-const wrapAsync = require("../utils/wrapAsync.js"); 
+const wrapAsync = require("../utils/wrapAsync.js");
 
 const listings = require("../models/listing");
 
@@ -19,7 +18,8 @@ router.post("/", wrapAsync(async (req, res) => {
     });
     console.log("Search results:", results);
 
-    res.render("../views/listings/search.ejs", { results });
+    // ADD 'return' HERE:
+    return res.render("../views/listings/search.ejs", { results });
 }));
 
 module.exports = router;
